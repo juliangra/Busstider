@@ -12,22 +12,28 @@ const BusTimes = () => {
   const [busStation, setBusStations] = useState([]);
 
   useEffect(() => {
-    const generateStops = setInterval(() => {
-      service
-        .getDeparturesBetweenStopPlaces(
-          /*
-
-            Finn ID til dine stoppesteder her:
-            https://developer.entur.org/pages-geocoder-intro
-
+    async function generateStops() {
+      const stops = await service.getDeparturesBetweenStopPlaces(
+        /*
+        
+        Finn ID til dine stoppesteder her:
+        https://developer.entur.org/pages-geocoder-intro
+        
           */
-          "NSR:StopPlace:60890",
-          "NSR:StopPlace:44085",
-          // Viser her 9 resultat; endre dette om ønskelig
-          { limit: 9 }
-        )
-        .then((data) => setBusStations(data));
-    }, 10000);
+        'NSR:StopPlace:60890',
+        'NSR:StopPlace:44085',
+        // Viser her 9 resultat; endre dette om ønskelig
+        { limit: 9 }
+      )
+      setBusStations(stops)
+      console.log('Setting stops')
+    }
+
+    generateStops()
+    const newStopsInterval = setInterval(generateStops, 1000)
+
+    return () => clearInterval(newStopsInterval)
+  }, [])
 
     return () => clearInterval(generateStops);
   }, []);
