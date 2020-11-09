@@ -1,8 +1,8 @@
-import React, { useEffect, useState, Component } from "react";
+import React, { useEffect, useState } from "react";
 import createEnturService from "@entur/sdk";
 
 const service = createEnturService({
-  clientName: "grande-infoskjerm",
+  clientName: "busstider",
 });
 
 const BusTimes = () => {
@@ -12,6 +12,12 @@ const BusTimes = () => {
     const generateStops = setInterval(() => {
       service
         .getDeparturesBetweenStopPlaces(
+          /*
+
+            Finn ID til dine stoppesteder her:
+            https://developer.entur.org/pages-geocoder-intro
+
+          */
           "NSR:StopPlace:60890",
           "NSR:StopPlace:44085",
           { limit: 9 }
@@ -21,8 +27,6 @@ const BusTimes = () => {
 
     return () => clearInterval(generateStops);
   }, []);
-
-  console.log(busStation);
 
   return (
     <div className="routes">
@@ -37,8 +41,6 @@ export default BusTimes;
 
 const Route = (props) => {
   const route = props.route;
-
-  console.log(route);
 
   let arrival_at_destination;
 
@@ -67,7 +69,7 @@ const Route = (props) => {
     route.expectedDepartureTime.slice(11, 16)
   ) {
     arrival_at_destination = new Date(
-      // Had to add milliseconds because Safari is retarded obviously
+      // Had to add milliseconds for Safari support
       route.aimedArrivalTime.slice(0, 19) + ".000+01:00"
     );
   } else {
