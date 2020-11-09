@@ -35,9 +35,6 @@ const BusTimes = () => {
     return () => clearInterval(newStopsInterval)
   }, [])
 
-    return () => clearInterval(generateStops);
-  }, []);
-
   return (
     <div className="routes">
       {busStation.map((route) => {
