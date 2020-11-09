@@ -5,6 +5,9 @@ const service = createEnturService({
   clientName: "busstider",
 });
 
+// Endre dette til lengden på turen
+const route_length = 10;
+
 const BusTimes = () => {
   const [busStation, setBusStations] = useState([]);
 
@@ -20,6 +23,7 @@ const BusTimes = () => {
           */
           "NSR:StopPlace:60890",
           "NSR:StopPlace:44085",
+          // Viser her 9 resultat; endre dette om ønskelig
           { limit: 9 }
         )
         .then((data) => setBusStations(data));
@@ -78,7 +82,9 @@ const Route = (props) => {
     );
   }
 
-  arrival_at_destination.setMinutes(arrival_at_destination.getMinutes() + 10);
+  arrival_at_destination.setMinutes(
+    arrival_at_destination.getMinutes() + route_length
+  );
   arrival_at_destination = new Date(arrival_at_destination.getTime());
 
   return (

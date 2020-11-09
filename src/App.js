@@ -2,6 +2,7 @@ import BusTimes from "./BusTimes";
 import Clock from "./Clock";
 import "./css/style.css";
 
+// Endre disse til egne verdier
 const app_name = "Busstider";
 const departing_from = "Ila";
 const arriving_at = "Gløshaugen";
