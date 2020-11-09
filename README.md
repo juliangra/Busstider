@@ -1,7 +1,10 @@
-# Busskjerm
+# Busstider
 
 Dette er en infoskjerm for å vise busstider på en tilsvarende måte som på bussholdeplasser og togstasjoner.
 Prosjektet er laget i React, og bruker Entur sin SDK.
+
+Busstider har innebygd støtte for real-time oppdateringer som kun har blitt testet i **Trondheim** med AtB.
+Modifikasjoner kreves mest sannsynlig hvis den skal tas i bruk i andre byer.
 
 Designet er basert på Ruter sine infoskjermer, https://mon.ruter.no/, og Ruter sin font er hentet fra: https://brand.ruter.no/
 
