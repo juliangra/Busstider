@@ -1,0 +1,116 @@
+@font-face {
+  font-family: TID;
+  src: url(../fonts/TID-Regular.ttf);
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: TID;
+  src: url(../fonts/TID-RegularItalic.ttf);
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: TID;
+  src: url(../fonts/TID-Medium.ttf);
+  font-weight: medium;
+}
+
+@font-face {
+  font-family: TID;
+  src: url(../fonts/TID-MediumItalic.ttf);
+  font-weight: medium;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: TID;
+  src: url(../fonts/TID-Bold.ttf);
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: TID;
+  src: url(../fonts/TID-BoldItalic.ttf);
+  font-weight: bold;
+  font-style: italic;
+}
+
+body {
+  font-family: TID, sans-serif;
+  background: rgba(0, 0, 0, 0.918);
+  color: #fff;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 30px;
+}
+
+.routeIcon {
+  background: rgb(222, 12, 12);
+}
+
+.routeIcon h2 {
+  font-size: 2em;
+  margin: 0;
+  padding: 11px;
+}
+
+.routes,
+.Route,
+.routesHeader {
+  display: grid;
+}
+
+.Route,
+.routesHeader {
+  grid-template-columns: 0.7fr 2fr 1fr 1fr;
+}
+
+.ignoreTime,
+.correctTime {
+  display: inline-block;
+}
+
+.ignoreTime {
+  text-decoration: line-through;
+}
+
+.correctTime {
+  color: yellow;
+  margin-left: 10px;
+}
+
+hr {
+  height: 1px;
+  border: none;
+  background: rgb(255 255 255 / 0.5);
+}
+
+.g-bg {
+  background: #353535;
+  height: 84%;
+  margin-top: -8px;
+  padding-top: 26px;
+}
+
+.updatedArrivalTime {
+  background: #353535;
+  margin-top: -8px;
+  height: 111%;
+  padding-top: 9px;
+}
+
+.clock {
+  text-align: right;
+  font-size: 3em;
+  margin: 10px 0 20px 0;
+}
