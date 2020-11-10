@@ -12,8 +12,8 @@ const BusTimes = () => {
   const [busStation, setBusStations] = useState([]);
 
   useEffect(() => {
-    const generateStops = setInterval(() => {
-      service
+    async function generateStops() {
+      await service
         .getDeparturesBetweenStopPlaces(
           /*
 
@@ -27,9 +27,11 @@ const BusTimes = () => {
           { limit: 9 }
         )
         .then((data) => setBusStations(data));
-    }, 10000);
+    }
+    generateStops();
+    setInterval(generateStops, 10000);
 
-    return () => clearInterval(generateStops);
+    return () => clearInterval();
   }, []);
 
   return (
